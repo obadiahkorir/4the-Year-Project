@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.obadiahkorir.projects.AboutActivity"
+    tools:showIn="@layout/app_bar_about">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <!--<de.hdodenhof.circleimageview.CircleImageView-->
+        <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+        <!--android:id="@+id/newCastle_image"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:layout_marginRight="100dp"-->
+        <!--android:layout_marginLeft="100dp"-->
+        <!--android:src="@drawable/chicken1"-->
+        <!--/>-->
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/oba_image"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="3"
+            android:scaleType="centerCrop"
+            android:src="@drawable/oba" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_oba"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_oba"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"/>
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/pwani_image"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="3"
+                android:scaleType="centerCrop"
+                android:src="@drawable/launcher" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_ehelp"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_ehelp1"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_ehelp2"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_ehelp3"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/pwani"
+                android:scaleType="centerCrop"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pwani_uni"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_Pu"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
+
+

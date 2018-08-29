@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.obadiahkorir.projects.LoginActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="8dp">
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="8dp"></android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/pp2"
+        android:layout_alignTop="@+id/linearLayout"
+        android:layout_alignStart="@+id/btnLoginRegister" />
+
+    <TextView
+        android:id="@+id/btnLoginRegister"
+        android:layout_width="218dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Dont' have an account?\nRegister Here."
+        android:textAlignment="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/btnLogin"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="316dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/login_button"
+        android:text="Login"
+        android:layout_below="@+id/etLoginPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp" />
+
+    <EditText
+        android:id="@+id/etLoginUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/btnLogin"
+        android:layout_centerVertical="true"
+        android:drawableLeft="@drawable/user"
+        android:hint="Enter UserName"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/etLoginPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/etLoginUsername"
+        android:layout_below="@+id/etLoginUsername"
+        android:layout_marginTop="26dp"
+        android:drawableLeft="@drawable/lock"
+        android:fontFamily="sans-serif"
+        android:hint="Enter Password"
+        android:inputType="textPassword" />
+
+
+</RelativeLayout>

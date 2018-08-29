@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/login"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:text="Proceed To Login"
+        android:textColor="#fff"
+        android:background="#0099ff"
+        android:textAllCaps="false"
+        android:onClick="phoneLogin"
+        android:layout_marginBottom="29dp"
+        android:layout_above="@+id/facebook"
+        android:layout_alignLeft="@+id/facebook"
+        android:layout_alignStart="@+id/facebook"
+        android:layout_marginLeft="68dp"
+        android:layout_marginStart="68dp" />
+
+    <ImageButton
+        android:id="@+id/facebook"
+        android:layout_width="350dp"
+        android:layout_height="120dp"
+        app:srcCompat="@drawable/face"
+        android:layout_marginBottom="31dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/logout"
+        android:text="Logout"
+        android:textColor="#fff"
+        android:background="#ff9900"
+        android:textAllCaps="false"
+        android:onClick="logout"
+        android:visibility="gone"/>
+
+
+
+</RelativeLayout>

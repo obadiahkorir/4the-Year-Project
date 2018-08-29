@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Spinner
+        android:id="@+id/spr_place_type"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/btn_find" />
+
+    <Button
+        android:id="@+id/btn_find"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:text="Find Nerby Place"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spr_place_type"
+        class="com.google.android.gms.maps.SupportMapFragment" />
+
+</RelativeLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/option_get_place"
+        android:title="@string/option_get_place"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/view_Place"
+        android:orderInCategory="100"
+        android:title="View Place"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_image"
+        android:orderInCategory="100"
+        android:title="Image"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:icon="@drawable/settings"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_location"
+        android:orderInCategory="100"
+        android:icon="@drawable/marker"
+        android:title="Location"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_Contacts"
+        android:orderInCategory="100"
+        android:icon="@drawable/contacts"
+        android:title="Contacts"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_chat"
+        android:orderInCategory="100"
+        android:icon="@drawable/chat"
+        android:title="Chat"
+        app:showAsAction="never" />
+
+</menu>

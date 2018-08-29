@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/View"
+        android:layout_width="fill_parent"
+        android:background="#D8D8D8"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent"
+
+            android:orientation="vertical" >
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/back"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="?attr/homeAsUpIndicator" />
+
+            <TextView android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+
+                android:text="Describe Child Abuse:"
+
+                android:paddingLeft="10dp"
+
+                android:paddingRight="10dp"
+
+                android:paddingTop="10dp"
+
+                android:textSize="17sp"/>
+
+            <!-- firstname input -->
+            <EditText android:id="@+id/editTextFirstName"
+
+                android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dip"
+
+                android:layout_marginBottom="15dip"
+
+                android:singleLine="true"/>
+
+            <!-- lastname -->
+            <TextView android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+
+                android:text="Child Abuse Location:"
+
+                android:paddingLeft="10dp"
+
+                android:paddingRight="10dp"
+
+                android:paddingTop="10dp"
+
+                android:textSize="17sp"/>
+
+            <!-- lastname input -->
+            <EditText android:id="@+id/editTextLastName"
+
+                android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dp"
+
+                android:layout_marginBottom="15dip"
+
+                android:singleLine="true"/>
+
+            <!-- username -->
+            <TextView android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+
+                android:text="Corruption Time:"
+
+                android:paddingLeft="10dp"
+
+                android:paddingRight="10dp"
+
+                android:paddingTop="10dp"
+
+                android:textSize="17sp"/>
+
+            <!-- username input -->
+            <EditText android:id="@+id/in_time"
+
+                android:layout_width="fill_parent"
+
+                android:hint="Select Time......."
+
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dp"
+
+                android:layout_marginBottom="15dp"
+
+                android:singleLine="true"/>
+            <TextView android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+
+                android:text="Child Abuse Date:"
+
+                android:paddingLeft="10dp"
+
+                android:paddingRight="10dp"
+
+                android:paddingTop="10dp"
+
+                android:textSize="17sp"/>
+
+            <!-- username input -->
+            <EditText android:id="@+id/in_date"
+
+                android:layout_width="fill_parent"
+
+                android:hint="Select Date......."
+
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dp"
+
+                android:layout_marginBottom="15dp"
+
+                android:singleLine="true"/>
+
+            <TextView android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+
+                android:text="County:"
+
+                android:paddingLeft="10dp"
+
+                android:paddingRight="10dp"
+
+                android:paddingTop="10dp"
+
+                android:textSize="17sp"/>
+
+            <!-- username input -->
+            <EditText android:id="@+id/county"
+
+                android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dp"
+
+                android:layout_marginBottom="15dp"
+
+                android:singleLine="true"/>
+
+
+            <!-- address -->
+            <TextView android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+
+                android:inputType="textEmailAddress"
+
+                android:ems="10"
+
+                android:text="Email Address"
+
+                android:paddingLeft="10dp"
+
+                android:paddingRight="10dp"
+
+                android:paddingTop="10dp"
+
+                android:textSize="17sp"/>
+
+            <!-- address input -->
+            <EditText android:id="@+id/editTextEmail"
+
+                android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+
+                android:layout_margin="5dip"
+
+                android:layout_marginBottom="15dip"
+
+                android:singleLine="true"/>
+
+            <!-- address input -->
+
+            <TextView
+                android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+
+                android:paddingLeft="10dp"
+
+                android:text="Child Abuse Type"
+
+                android:paddingRight="10dp"
+
+                android:paddingTop="10dp"
+
+                android:textSize="17sp"/>
+
+            <!-- contact input -->
+            <EditText android:id="@+id/childabusetype"
+
+                android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+
+                android:paddingLeft="10dp"
+
+                android:paddingRight="10dp"
+
+                android:paddingTop="10dp"
+
+                android:textSize="17sp"/>
+            <TextView
+                android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+
+                android:paddingLeft="10dp"
+
+                android:text="Your Contact"
+
+                android:paddingRight="10dp"
+
+                android:paddingTop="10dp"
+
+                android:textSize="17sp"/>
+
+            <!-- contact input -->
+            <EditText android:id="@+id/contact"
+
+                android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+
+                android:paddingLeft="10dp"
+
+                android:paddingRight="10dp"
+
+                android:paddingTop="10dp"
+
+                android:textSize="17sp"/>
+
+            <!-- Button Register -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- Button Register -->
+                <Button android:id="@+id/ButtonInsert"
+
+                    android:layout_gravity="left"
+
+                    android:layout_width="150dp"
+
+                    android:textColor="@color/grey"
+
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/login_button"
+
+                    android:text="Submit"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="18dp" />
+
+
+                <!-- Button Cancel -->
+                <Button android:id="@+id/btncancel"
+
+                    android:textColor="@color/grey"
+
+                    android:layout_gravity="right"
+
+                    android:layout_width="150dp"
+
+                    android:background="@drawable/login_button"
+
+                    android:layout_height="wrap_content"
+
+                    android:text="Cancel"
+                    android:layout_marginEnd="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

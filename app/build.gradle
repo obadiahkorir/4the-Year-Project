@@ -1,0 +1,94 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "28.0.1"
+    defaultConfig {
+        applicationId "com.example.obadiahkorir.projects"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+        useLibrary 'org.apache.http.legacy'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+    }
+}
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    compile 'com.android.support:appcompat-v7:27.1.1'
+    compile 'com.android.support:multidex:1.0.0'
+    compile 'de.hdodenhof:circleimageview:2.2.0'
+    compile 'com.miguelcatalan:materialsearchview:1.4.0'
+    compile 'com.google.android.gms:play-services-maps:11.8.0'
+    compile 'com.google.android.gms:play-services-places:11.8.0'
+    compile 'com.google.android.gms:play-services-location:11.8.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:27.1.1'
+    compile 'com.google.android.gms:play-services:11.8.0'
+    compile 'com.google.android.gms:play-services-gcm:11.8.0'
+    compile 'com.google.android.gms:play-services-analytics:11.8.0'
+    compile 'com.google.android.gms:play-services-appinvite:11.8.0'
+    compile 'com.android.support:recyclerview-v7:27.1.1'
+    compile 'com.android.volley:volley:1.0.0'
+    compile 'com.android.support:cardview-v7:27.1.1'
+    compile 'com.google.firebase:firebase-database:11.8.0'
+    compile 'com.firebaseui:firebase-ui-storage:3.2.2'
+    compile 'com.firebaseui:firebase-ui-firestore:3.2.2'
+    compile 'ai.api:sdk:2.0.7@aar'
+    compile 'com.github.bumptech.glide:glide:4.2.0'
+    compile 'ai.api:libai:1.4.8'
+    compile 'commons-io:commons-io:2.4'
+    compile 'com.squareup.picasso:picasso:2.5.0'
+    compile 'com.github.florent37:diagonallayout:1.0.7'
+    compile 'com.flaviofaria:kenburnsview:1.0.7'
+    compile 'com.squareup.retrofit2:retrofit:2.0.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0'
+    compile 'com.toe.chowder:chowder:0.8.2'
+    compile 'com.google.firebase:firebase-core:11.8.0'
+    compile 'com.firebaseui:firebase-ui-database:3.2.2'
+    compile 'com.google.firebase:firebase-auth:11.8.0'
+    compile 'com.google.firebase:firebase-messaging:11.8.0'
+    compile 'com.google.android.gms:play-services-base:11.8.0'
+    compile 'com.facebook.android:account-kit-sdk:4.20.0'
+    compile 'com.android.support:support-v4:27.+'
+    compile 'com.android.support:support-vector-drawable:27.+'
+    compile 'com.github.kittinunf.fuel:fuel-android:1.9.0'
+    compile 'com.firebaseui:firebase-ui:0.6.0'
+    compile 'com.github.clans:fab:1.6.2'
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:multidex:1.0.1'
+    testCompile 'junit:junit:4.12'
+    compile 'com.firebase:firebase-client-android:2.5.2+'
+    compile 'com.jakewharton:butterknife:8.5.1'
+    compile 'com.codemybrainsout.rating:ratingdialog:1.0.8'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+}
+apply plugin: 'com.google.gms.google-services'

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="5dp"
+    card_view:contentPadding="5dp"
+    card_view:cardCornerRadius="5dp"
+    card_view:cardMaxElevation="5dp">
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ECEFF1">
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/VolleyImageView"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:src="@drawable/police"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/VolleyImageView"
+            android:layout_toEndOf="@+id/VolleyImageView"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:text="Police"
+            android:id="@+id/ImageNameTextView"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

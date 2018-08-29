@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_white_24dp"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/user"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/chat"
+            android:title="Online Chat" />
+
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@drawable/ic_payment_black_24dp"
+            android:title="Search" />
+        <item
+            android:id="@+id/nav_location"
+            android:icon="@drawable/ic_location_on_black_24dp"
+            android:title="Location" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/about"
+            android:title="About Us" />
+
+        <item
+            android:id="@+id/nav_notifications"
+            android:icon="@drawable/ic_notifications_white_24dp"
+            android:title="Notification" />
+    </group>
+
+    <item android:title="Ongea Platform">
+        <menu>
+            <item
+                android:id="@+id/nav_rate"
+                android:icon="@drawable/rate"
+                android:title="Rate us" />
+
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_share_black_24dp"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_send_black_24dp"
+                android:title="Send" />
+            <item
+                android:id="@+id/nav_oba"
+                android:icon="@drawable/about"
+                android:title="About Obadiah" />
+            <item
+                android:id="@+id/nav_logout"
+                android:title="Logout" />
+
+        </menu>
+    </item>
+
+</menu>

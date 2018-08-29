@@ -1,0 +1,239 @@
+<resources>
+    <string name="app_name">E~Help</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="action_settings">Settings</string>
+    <string name="username">c0beff0b-3835-4930-86f9-0ad8baea6765</string>
+    <string name="password">7KeEsnLSQwzi</string>
+    <string name="workspace">3a914710-4eb2-492e-8a43-eca368218697</string>
+    <string name="translation_label">Translation:</string>
+    <string name="translate">translate</string>
+    <string name="input_hint">enter text</string>
+    <string name="target_language">Target Language</string>
+    <string name="spanish">Spanish</string>
+    <string name="french">French</string>
+    <string name="italian">Italian</string>
+    <string name="microphone">Microphone</string>
+    <string name="play">Play</string>
+    <string name="copy_location">Copy</string>
+    <string name="view_location">View</string>
+    <string name="copied">Copied to clipboard</string>
+    <string name="clipboard_error">Failed to copy text to clipboard</string>
+    <string name="getting_location">Getting User location</string>
+    <string name="share_location_via">Share location via</string>
+    <string name="view_location_via">View location via</string>
+    <string name="turn_on_GPS">Turn on GPS</string>
+    <string name="permission_denied">GPS permission denied</string>
+    <string name="accuracy">Accuracy</string>
+    <string name="latitude">Latitude</string>
+    <string name="share_location">Share</string>
+    <string name="longitude">Longitude</string>
+    <string name="choose_link">Choose a link type</string>
+    <string name="googlemaps" translatable="false">Google Maps</string>
+    <string name="openstreetmap" translatable="false">OpenStreetMap</string>
+    <string name="geouri" translatable="false">GeoURI</string>
+    <string name="settings">Settings</string>
+    <string name="link_type">Link type</string>
+    <string name="pref_link_type_default" translatable="false">https://maps.google.com/?q={0},{1}</string>
+    <string name="rate_app_title">Rate our App</string>
+    <string name="rate_app_message">If you like our app, please take a moment to rate it in play store!</string>
+    <string name="dialog_app_rate">Rate App</string>
+    <string name="dialog_ask_later">Later</string>
+    <string name="dialog_your_feedback">Your Feedback</string>
+    <string name="app_message">Launch count is %d</string>
+    <string name="option_get_place">Get place</string>
+    <string name="pick_place">Choose a place</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="default_info_title">Default Location</string>
+    <string name="default_info_snippet">No places found, because</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="facebook_app_id">741364219385709</string>
+    <string name="ACCOUNT_KIT_CLIENT_TOKEN">64db7ca124d22cfbc305b1abd2d5b82c</string>
+    <string name="ak_login_protocol_scheme">ak741364219385709</string>
+    <string name="title_activity_main">Emergency</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+    <string name="login">LOG IN</string>
+    <string name="account">Profile</string>
+    <string name="create_new_account">CREATE NEW ACCOUNT</string>
+    <string name="slide_1_title">Protect Yourself. Save Others!</string>
+    <string name="slide_1_desc">The easiest way to protect and care for others!</string>
+    <string name="slide_2_title">Child Abuse</string>
+    <string name="slide_2_desc">Report child Abuse to the relevant Authorities!</string>
+    <string name="slide_3_title">ZUSHA!</string>
+    <string name="slide_3_desc">Dont be silent...Ni wajibu wako kuongea!</string>
+    <string name="slide_4_title">Security on Your Hand</string>
+    <string name="slide_4_desc">Report any Emergency Incidents to the relevant Authorities.!</string>
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+    <string name="intro">WELCOME TO OUR SPECIAL NEEDS OPTION</string>
+    <string name="not">Notifications</string>
+
+    <string-array name="image_ids">
+        <item>@drawable/image_1</item>
+        <item>@drawable/image_2</item>
+        <item>@drawable/image_3</item>
+        <item>@drawable/image_4</item>
+        <item>@drawable/image_5</item>
+        <item>@drawable/image_6</item>
+        <item>@drawable/image_7</item>
+        <item>@drawable/image_8</item>
+        <item>@drawable/image_9</item>
+        <item>@drawable/image_1</item>
+        <item>@drawable/image_2</item>
+        <item>@drawable/image_3</item>
+        <item>@drawable/image_4</item>
+        <item>@drawable/image_5</item>
+        <item>@drawable/image_6</item>
+        <item>@drawable/image_7</item>
+        <item>@drawable/image_8</item>
+        <item>@drawable/image_9</item>
+    </string-array>
+
+    <string name="tab1">HOME</string>
+    <string name="tab2">LOCATION</string>
+    <string name="tab3">PHOTO</string>
+    <string name="title_activity_polices">PolicesActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="quotedesc">Welcome to E-Help.. Security is Guaranteed</string>
+    <string name="what_s_on_your_mind">Enter your query</string>
+    <string name="title_oba">About Obadiah</string>
+    <string name="about_oba">Goal-oriented and collaborative IT professional with experience applying hardware and software design, installation, administration, and configuration to support growing businesses. Proven analytic and problem-solving skills with the keen ability to assess needs, define requirements, develop value-added solutions, and execute technical solutions that streamline and improve operating efficiencies. Adept in communicating with technical and non-technical audiences. </string>
+    <string name="about_ehelp">About E-Help</string>
+    <string name="about_ehelp1">E-Help is an Android Emergency Application that was developed with and Aim to Curb Various Emergency Incidents in a Manner that it allows citizens to easily report the exact location where the incident occured. The App was Submitted as A Final Year Project for the Award of Bsc in Computer Science 2018(Pwani University) Supervised by Mr. Peter Arnold. </string>
+    <string name="about_ehelp2">SuperVisor</string>
+    <string name="about_ehelp3">Mr. Peter Arnold</string>
+    <string name="pwani_uni">About Pwani University</string>
+    <string name="about_Pu">Pwani University began as Kilifi Institute of Agriculture in 1984 though the first intake of 200 students for the Two Year Certificate Course in Agriculture and Home Economics was in July 1987.  By 2007, Kilifi Institute of Agriculture had graduated 3,837 students. The Institute also hosted a number of Masters and PhD research students from other national universities. On 23rd August 2007, Kilifi Institute of Agriculture was upgraded to a Constituent College of Kenyatta\n University, and in March 2013, it was given a charter as a full- fledged University. It is strategically placed in the heart of the Coastal region of Kenya in Kilifi Town, right on the Mombasa-Malindi Highway; and is equipped with facilities to offer quality training in Tropical Agriculture, Tropical Medicine, Marine Sciences and Education. So whether you’re finishing high school, beginning university for the first time, or pursuing graduate studies, you’ll find a wide range of options at Pwani University. Our University has more than five schools which all together offer a diversity of degree programmes in the Arts, Humanities, Sciences, Health and Education. The University has engaged highly qualified staff members.</string>
+    <string name="pick_title">Pick a place</string>
+    <string name="pick_text">Clicking below constructs an Intent to show the place picker dialog.
+\nIf a place was selected, its details are read from the returned data and shown in a separate card.
+</string>
+    <string name="pick_action">Pick a place</string>
+
+    <string name="detail_text">Place id: %1$s\nAddress: %2$s\nPhone: %3$s\n\n%4$s</string>
+
+    <string name="empty"></string>
+
+    <string name="intro_message">
+        <![CDATA[
+
+
+            This sample uses the PlacePicker.Builder to construct an Intent to launch the place
+            picker dialog. Users can select a place or add a new place,
+            which is then returned to the application.
+
+
+
+        ]]>
+    </string>
+    <string name="intro_title">PlacePicker Sample</string>
+    <string name="btnClick">Add Contacts</string>
+    <string name="btnClick2">Send SMS</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="str_btn_find">Find</string>
+
+    <string-array name="place_type">
+        <item>airport</item>
+        <item>atm</item>
+        <item>bank</item>
+        <item>bus_station</item>
+        <item>church</item>
+        <item>doctor</item>
+        <item>hospital</item>
+        <item>mosque</item>
+        <item>movie_theater</item>
+        <item>hindu_temple</item>
+        <item>restaurant</item>
+    </string-array>
+
+    <string-array name="place_type_name">
+        <item>Airport</item>
+        <item>ATM</item>
+        <item>Bank</item>
+        <item>Bus Station</item>
+        <item>Church</item>
+        <item>Doctor</item>
+        <item>Hospital</item>
+        <item>Mosque</item>
+        <item>Movie Theater</item>
+        <item>Hindu Temple</item>
+        <item>Restaurant</item>
+    </string-array>
+    <string name="title_activity_about">AboutActivity</string>
+</resources>

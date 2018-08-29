@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.androidmads.placepickersample.MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/view_places_m"
+        android:orderInCategory="100"
+        android:title="View Places"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/add_place_notes_m"
+        android:orderInCategory="100"
+        android:title="Add Place Notes"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/view_place_notes_m"
+        android:orderInCategory="100"
+        android:title="View Place Notes"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/card_margin"
+        android:padding="12dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Emergency Management System"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="E-HELP"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="For comments, improvements and suggestions,contact us"
+                android:textSize="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="0714988589"
+                android:textSize="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="korir400@gmail.com"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/post_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="#ecf0f1"
+        android:elevation="@dimen/cardview_default_elevation"
+        app:cardCornerRadius="4dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:orientation="horizontal">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="156dp"
+                    android:src="@drawable/oba"
+                    app:civ_border_color="#FFFFFFFF"
+                    app:civ_border_width="1dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/titleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="332dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/commentView"
+                    android:layout_width="@dimen/icon_width"
+                    android:layout_height="@dimen/icon_height"
+                    android:padding="@dimen/icon_padding"
+                    android:src="@drawable/chat" />
+
+                <TextSwitcher
+                    android:id="@+id/CommentsCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_toEndOf="@+id/commentView"
+                    android:layout_toRightOf="@+id/commentView">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50"
+                        android:textColor="@color/text_color"
+                        android:textSize="@dimen/topic_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_color" />
+                </TextSwitcher>
+
+
+                <ImageView
+                    android:id="@+id/likeImageView"
+                    android:layout_width="@dimen/icon_width"
+                    android:layout_height="@dimen/icon_height"
+                    android:layout_toEndOf="@+id/CommentsCounter"
+                    android:layout_toRightOf="@+id/CommentsCounter"
+                    android:padding="@dimen/icon_padding"
+                    android:src="@drawable/ic_like" />
+
+                <TextSwitcher
+                    android:id="@+id/tsLikesCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_toEndOf="@+id/likeImageView"
+                    android:layout_toRightOf="@+id/likeImageView">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="123"
+                        android:textColor="@color/text_color"
+                        android:textSize="@dimen/topic_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_color" />
+                </TextSwitcher>
+
+                <ImageView
+                    android:id="@+id/shareImageView"
+                    android:layout_width="@dimen/icon_width"
+                    android:layout_height="@dimen/icon_height"
+                    android:padding="@dimen/icon_padding"
+                    android:src="@drawable/share"
+                    android:layout_toRightOf="@+id/tsLikesCounter" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="193dp"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/titleTextView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/about"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:textAlignment="center"
+                        android:text="E-help Is an Incident and Emergency Android Application that Helps citizens Report Various Emergency Incidents to various Relevant Authorities and Be Able to find Emergency Response"
+                        android:textColor="#9e9e9e"
+                        android:textSize="@dimen/topic_size"
+                        android:textStyle="bold"
+
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
