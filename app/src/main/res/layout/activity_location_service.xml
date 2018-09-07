@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -34,13 +35,15 @@
 
     <android.support.v7.widget.CardView
         card_view:elevation="4dp"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        android:layout_below="@+id/header"
         android:id="@+id/card_view"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="1dp">
+        card_view:cardCornerRadius="1dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/userName">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -131,18 +134,29 @@
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Please Confirm Your E-Mail Address."
+        android:text="Please Confirm Your Place Name."
         android:layout_below="@+id/card_view"
         android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:id="@+id/emails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/email"
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textColor="@color/bg_screen1"
         android:layout_below="@+id/email"
         android:layout_marginTop="14dp"
-        android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:layout_alignEnd="@+id/btnLocation"
+        android:layout_alignStart="@+id/btnLocation" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/ic_location_searching"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/fab_margin" />
 
 </RelativeLayout>

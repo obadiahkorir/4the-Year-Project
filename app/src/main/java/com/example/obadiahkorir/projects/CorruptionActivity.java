@@ -46,8 +46,8 @@ import java.util.Calendar;
 
 public class CorruptionActivity  extends AppCompatActivity  implements
         View.OnClickListener,LocationListener,AdapterView.OnItemSelectedListener  {
-    public Spinner spinner;
-
+    public Spinner spinner,spinner2;
+    private SessionHandler session;
     protected LocationManager locationManager;
     protected LocationListener locationListener;
     protected Context context;
@@ -59,13 +59,13 @@ public class CorruptionActivity  extends AppCompatActivity  implements
   private int mYear, mMonth, mDay, mHour, mMinute;
         Toolbar toolbar;
         // Creating EditText.
-        EditText FirstName, LastName, Email,County,Corruptiontype,Contact,Date ;
+        EditText FirstName, LastName, Email,County,Corruptiontype,Contact,Date,Time ;
         // Creating button;
         Button InsertButton;
         // Creating Volley RequestQueue.
         RequestQueue requestQueue;
         // Create string variable to hold the EditText Value.
-        String FirstNameHolder, LastNameHolder, EmailHolder,SpinnerHolder,CountyHolder,CorruptionTypeHolder,TimeHolder,ContactHolder ;
+        String FirstNameHolder, LastNameHolder, EmailHolder,SpinnerHolder,CountyHolder,DateHolder,CorruptionTypeHolder,TimeHolder,ContactHolder ;
         // Creating Progress dialog.
         ProgressDialog progressDialog;
         // Storing server url into String variable.
@@ -76,17 +76,23 @@ protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_corruption);
 
+      session = new SessionHandler(getApplicationContext());
+
+        User user = session.getUserDetails();
+
         toolbar = (Toolbar) findViewById(R.id.back);
         toolbar.setNavigationIcon(R.drawable.back_arrow);
+
         toolbar.setTitle("Report Corruption Incident.");
+
         // Assigning ID's to EditText.
         FirstName = (EditText) findViewById(R.id.editTextFirstName);
         LastName = (EditText) findViewById(R.id.editLocation);
         Email = (EditText) findViewById(R.id.editTextEmail);
-        County=(EditText) findViewById(R.id.county);
+        Email.setText(""+user.getFullName());
         Contact=(EditText) findViewById(R.id.contact);
-       Corruptiontype =(EditText) findViewById(R.id.corruptiontype);
         Date=(EditText)findViewById(R.id.in_date);
+        Time=(EditText)findViewById(R.id.in_time);
         txtDate=(EditText)findViewById(R.id.in_date);
         txtTime=(EditText)findViewById(R.id.in_time);
         txtDate.setOnClickListener(this);
@@ -172,6 +178,26 @@ protected void onCreate(Bundle savedInstanceState) {
 
         spinner.setAdapter(dataAdapter);
         spinner.setOnItemSelectedListener(this);
+
+    spinner2 = (Spinner) findViewById(R.id.corruptclass);
+    List<String> corruptype = new ArrayList<String>();
+    corruptype.add("Please Select Corruption Level");
+    corruptype.add("Grand corruption");
+    corruptype.add("Petty corruption");
+    corruptype.add("Political corruption");
+    corruptype.add("Sporadic corruption");
+    corruptype.add("Systemic corruption");
+
+
+
+    ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>
+            (this, android.R.layout.simple_spinner_item, corruptype);
+
+    dataAdapter2.setDropDownViewResource
+            (android.R.layout.simple_spinner_dropdown_item);
+
+    spinner2.setAdapter(dataAdapter2);
+    spinner2.setOnItemSelectedListener(this);
         // Assigning ID's to Button.
         InsertButton = (Button) findViewById(R.id.ButtonInsert);
 
@@ -203,7 +229,12 @@ public void onResponse(String ServerResponse) {
 
         // Showing response message coming from server.
         Toast.makeText(CorruptionActivity.this, ServerResponse, Toast.LENGTH_LONG).show();
-        }
+    Intent i = new Intent(getApplicationContext(), CorruptionLocationActivity.class);
+    startActivity(i);
+    CorruptionActivity.this.overridePendingTransition(R.anim.push_left_in,
+            R.anim.push_left_out);
+
+}
         },
         new Response.ErrorListener() {
 @Override
@@ -230,6 +261,7 @@ protected Map<String, String> getParams() {
         params.put("corruptiontype", CorruptionTypeHolder);
         params.put("corruptiontime", TimeHolder);
         params.put("contact", ContactHolder);
+         params.put("corruptiondate", DateHolder);
 
 
         return params;
@@ -265,14 +297,9 @@ public void GetValueFromEditText(){
                 Email.setError("Please Enter Email Address.");
                 return;
         }
-        CorruptionTypeHolder = Corruptiontype.getText().toString().trim();
-        if(TextUtils.isEmpty(CorruptionTypeHolder)) {
-                Corruptiontype.setError("Please Enter Corruption Type.");
-                return;
-        }
-        TimeHolder= Date.getText().toString().trim();
+        TimeHolder= Time.getText().toString().trim();
         if(TextUtils.isEmpty( TimeHolder)) {
-                Date.setError("Please Select Date.");
+                Time.setError("Please Select Date.");
                 return;
         }
         ContactHolder= Contact.getText().toString().trim();
@@ -280,8 +307,13 @@ public void GetValueFromEditText(){
                 Contact.setError("Please Enter Contact.");
                 return;
         }
+      DateHolder= Date.getText().toString().trim();
+    if(TextUtils.isEmpty( DateHolder)) {
+        Date.setError("Please Enter Contact.");
+        return;
+    }
         SpinnerHolder =spinner.getSelectedItem().toString().trim();
-
+        CorruptionTypeHolder =spinner2.getSelectedItem().toString().trim();
 
         }
 @Override
@@ -417,7 +449,7 @@ public void onClick(DialogInterface dialog, int id) {
         // TODO Auto-generated method stub
         String selected = parent.getItemAtPosition(position).toString();
         ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
-        ((TextView) parent.getChildAt(0)).setTextSize(28);
+        ((TextView) parent.getChildAt(0)).setTextSize(18);
 
         if (selected.equals("Please Select Your County")) {
 

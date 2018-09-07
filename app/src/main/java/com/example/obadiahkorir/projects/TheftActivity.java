@@ -3,19 +3,29 @@ package com.example.obadiahkorir.projects;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import com.android.volley.Request;
@@ -26,24 +36,35 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 public class TheftActivity extends AppCompatActivity  implements
-        View.OnClickListener  {
+        View.OnClickListener,LocationListener,AdapterView.OnItemSelectedListener  {
+
+    public Spinner spinner,spinner2;
+    private SessionHandler session;
+    protected LocationManager locationManager;
+    protected LocationListener locationListener;
+    protected Context context;
+    String lat;
+    String provider;
+    protected String latitude, longitude;
     Button btnDatePicker, btnTimePicker;
     EditText txtDate, txtTime;
     private int mYear, mMonth, mDay, mHour, mMinute;
     Toolbar toolbar;
     // Creating EditText.
-    EditText FirstName, LastName, Email,County,Thefttype,Contact,Date ;
+    EditText FirstName, LastName, Email,County,Time,Thefttype,Contact,Date ;
     // Creating button;
     Button InsertButton;
     // Creating Volley RequestQueue.
     RequestQueue requestQueue;
     // Create string variable to hold the EditText Value.
-    String FirstNameHolder, LastNameHolder, EmailHolder,CountyHolder,TheftTypeHolder,TimeHolder,ContactHolder ;
+    String FirstNameHolder, LastNameHolder, EmailHolder,SpinnerHolder,CountyHolder,TheftTypeHolder,TimeHolder,DateHolder,ContactHolder ;
     // Creating Progress dialog.
     ProgressDialog progressDialog;
     // Storing server url into String variable.
@@ -56,14 +77,21 @@ public class TheftActivity extends AppCompatActivity  implements
         toolbar = (Toolbar) findViewById(R.id.back);
         toolbar.setNavigationIcon(R.drawable.back_arrow);
         toolbar.setTitle("Report Theft Incident.");
+
+        session = new SessionHandler(getApplicationContext());
+
+        User user = session.getUserDetails();
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+
         // Assigning ID's to EditText.
         FirstName = (EditText) findViewById(R.id.editTextFirstName);
         LastName = (EditText) findViewById(R.id.editTextLastName);
         Email = (EditText) findViewById(R.id.editTextEmail);
-        County=(EditText) findViewById(R.id.county);
+        Email.setText(user.getFullName());
         Contact=(EditText) findViewById(R.id.contact);
-        Thefttype =(EditText) findViewById(R.id.thefttype);
         Date=(EditText)findViewById(R.id.in_date);
+        Time=(EditText)findViewById(R.id.in_time);
         txtDate=(EditText)findViewById(R.id.in_date);
         txtTime=(EditText)findViewById(R.id.in_time);
         txtDate.setOnClickListener(this);
@@ -79,6 +107,77 @@ public class TheftActivity extends AppCompatActivity  implements
         autoD8.setText(date);
         autoTime.setText(time);
 
+        spinner = (Spinner) findViewById(R.id.spinner);
+        List<String> list = new ArrayList<String>();
+        list.add("Please Select the County");
+        list.add("Kilifi County");
+        list.add("Nairobi County");
+        list.add("Mombasa County");
+        list.add("Kiambu County");
+        list.add("Baringo County");
+        list.add("Bomet County");
+        list.add("Busia County");
+        list.add("Elgeyo Marakwet County");
+        list.add("Embu County");
+        list.add("Garissa County");
+        list.add("Homa Bay County");
+        list.add("Isiolo County");
+        list.add("Kajiado County");
+        list.add("Kakamega County");
+        list.add("Kericho County");
+        list.add("Kirinyaga County");
+        list.add("Kisii County");
+        list.add("Kisumu County");
+        list.add("Kitui County");
+        list.add("Kwale County");
+        list.add("Laikipia County");
+        list.add("Lamu County");
+        list.add("Machakos County");
+        list.add("Makueni County");
+        list.add("Mandera County");
+        list.add("Meru County");
+        list.add("Migori County");
+        list.add("Marsabit County");
+        list.add("Muranga County");
+        list.add("Nakuru County");
+        list.add("Nandi County");
+        list.add("Narok County");
+        list.add("Nyamira County");
+        list.add("Nyandarua County");
+        list.add("Nyeri County");
+        list.add("Samburu County");
+        list.add("Siaya County");
+        list.add("Taita Taveta County");
+        list.add("Tana River County");
+        list.add("Tharaka Nithi County");
+        list.add("Trans Nzoia County");
+        list.add("Uasin Gishu County");
+        list.add("Vihiga County");
+        list.add("Wajir County");
+        list.add("West Pokot County");
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource
+                (android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
+        spinner.setOnItemSelectedListener(this);
+        spinner2 = (Spinner) findViewById(R.id.thefttype);
+        List<String> thefttype = new ArrayList<String>();
+        thefttype.add("Please Select Corruption Level");
+        thefttype.add("Grand corruption");
+        thefttype.add("Petty corruption");
+        thefttype.add("Political corruption");
+        thefttype.add("Sporadic corruption");
+        thefttype.add("Systemic corruption");
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>
+                (this, android.R.layout.simple_spinner_item, thefttype);
+
+        dataAdapter2.setDropDownViewResource
+                (android.R.layout.simple_spinner_dropdown_item);
+
+        spinner2.setAdapter(dataAdapter2);
+        spinner2.setOnItemSelectedListener(this);
         // Assigning ID's to Button.
         InsertButton = (Button) findViewById(R.id.ButtonInsert);
         toolbar.setNavigationIcon(R.drawable.back_arrow);
@@ -119,6 +218,10 @@ public class TheftActivity extends AppCompatActivity  implements
 
                                 // Showing response message coming from server.
                                 Toast.makeText(TheftActivity.this, ServerResponse, Toast.LENGTH_LONG).show();
+                                Intent i = new Intent(getApplicationContext(), TheftLocationActivity.class);
+                                startActivity(i);
+                                TheftActivity.this.overridePendingTransition(R.anim.push_left_in,
+                                        R.anim.push_left_out);
                             }
                         },
                         new Response.ErrorListener() {
@@ -142,9 +245,10 @@ public class TheftActivity extends AppCompatActivity  implements
                         params.put("first_name", FirstNameHolder);
                         params.put("last_name", LastNameHolder);
                         params.put("email", EmailHolder);
-                        params.put("county", CountyHolder);
+                        params.put("county", SpinnerHolder);
                         params.put("thefttype", TheftTypeHolder);
                         params.put("thefttime", TimeHolder);
+                        params.put("theftdate", DateHolder);
                         params.put("contact", ContactHolder);
 
 
@@ -186,13 +290,13 @@ public class TheftActivity extends AppCompatActivity  implements
             County.setError("Please Enter County.");
             return;
         }
-        TheftTypeHolder =  Thefttype.getText().toString().trim();
-        if(TextUtils.isEmpty( TheftTypeHolder)) {
-            Thefttype.setError("Please Enter Theft Type.");
+        TimeHolder= Time.getText().toString().trim();
+        if(TextUtils.isEmpty( TimeHolder)) {
+            Time.setError("Please Select Theft Time.");
             return;
         }
-        TimeHolder= Date.getText().toString().trim();
-        if(TextUtils.isEmpty( TimeHolder)) {
+        DateHolder= Date.getText().toString().trim();
+        if(TextUtils.isEmpty( DateHolder)) {
             Date.setError("Please Select Date.");
             return;
         }
@@ -201,7 +305,8 @@ public class TheftActivity extends AppCompatActivity  implements
             Contact.setError("Please Enter Contact.");
             return;
         }
-
+        SpinnerHolder =spinner.getSelectedItem().toString().trim();
+        TheftTypeHolder =spinner2.getSelectedItem().toString().trim();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -304,4 +409,47 @@ public class TheftActivity extends AppCompatActivity  implements
         AlertDialog alert = builder.create();
         alert.show();
     }
+    @Override
+    public void onLocationChanged(Location location) {
+        LastName = (EditText) findViewById(R.id.editTextLastName);
+        LastName.setText("Latitude:" + location.getLatitude() + ", Longitude:" + location.getLongitude());
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+        Log.d("Latitude", "disable");
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+        Log.d("Latitude", "enable");
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        Log.d("Latitude", "status");
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position,
+                               long id) {
+        // TODO Auto-generated method stub
+        String selected = parent.getItemAtPosition(position).toString();
+        ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
+        ((TextView) parent.getChildAt(0)).setTextSize(18);
+
+        if (selected.equals("Please Select Your County")) {
+
+            Toast.makeText(parent.getContext(), "Please Select Your County", Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        // TODO Auto-generated method stub
+
+    }
+
 }

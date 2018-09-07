@@ -44,7 +44,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class UploadImageActivity extends AppCompatActivity {
 
     Bitmap bitmap;
-
+    private SessionHandler session;
     boolean check = true;
 
     Button SelectImageGallery, UploadImageServer;
@@ -61,16 +61,22 @@ public class UploadImageActivity extends AppCompatActivity {
 
     String ImagePath = "image_path" ;
 
-    String ServerUploadPath ="https://chemisoftsolutions.000webhostapp.com/android/image_insert.php" ;
+    String ServerUploadPath ="https://chemisoftsolutions.000webhostapp.com/android/image_upload.php" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
 
+        session = new SessionHandler(getApplicationContext());
+
+        User user = session.getUserDetails();
+
         imageView = (ImageView)findViewById(R.id.imageView);
 
         imageName = (EditText)findViewById(R.id.editTextImageName);
+
+        imageName.setText(""+user.getFullName());
 
         SelectImageGallery = (Button)findViewById(R.id.buttonSelect);
 

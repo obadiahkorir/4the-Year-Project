@@ -26,7 +26,7 @@ package com.example.obadiahkorir.projects;
 public class Premium extends AppCompatActivity implements PaymentListener {
 
     //Test parameters you can replace these with your own PayBill details
-        String PAYBILL_NUMBER = "0724072245";
+    String PAYBILL_NUMBER = "0714988589";
     String PASSKEY = "be9dc35907bd98ee471bbfe9ddd87e724cdef18ac3eabfecdfd08f2cc4a5c3e0";
 
     EditText  etPhoneNumber;
@@ -51,16 +51,7 @@ public class Premium extends AppCompatActivity implements PaymentListener {
             finish();
         }*/
 
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                Intent i = new Intent(getApplicationContext(),PremiumHome.class);
-                startActivity(i);
-                Premium.this.overridePendingTransition(R.anim.push_left_in,
-                        R.anim.push_left_out);
-            }
-        });
 
         setUp();
     }
@@ -197,7 +188,7 @@ public class Premium extends AppCompatActivity implements PaymentListener {
                                 android.app.AlertDialog.Builder a_builder = new android.app.AlertDialog.Builder(Premium.this);
                                 a_builder.setMessage("Ensure your internet connection is on,then click on the confirm payment button\n" +
                                         "If your last transaction is shown on the screen ,restart app and login again\n" +
-                                        "if you dont get any message call:0714988589 for further assistance").setCancelable(false)
+                                        "if you dont get any message call:0727045828 for further assistance").setCancelable(false)
 
                                         .setNegativeButton("OK", new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int which) {
@@ -291,7 +282,7 @@ public class Premium extends AppCompatActivity implements PaymentListener {
                         String amount = etAmount.getText().toString().trim();
                         String phoneNumber = etPhoneNumber.getText().toString().trim();
                         //Your product's ID must have 13 digits
-                        String productId = "emergencyhelp";
+                        String productId = "kikuyuculture";
 
                         chowder.processPayment(amount, phoneNumber.replaceAll("\\+", ""), productId);
                     }

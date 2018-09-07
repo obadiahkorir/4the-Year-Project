@@ -153,18 +153,25 @@
 
                 android:textSize="17sp"/>
 
-            <!-- username input -->
-            <EditText android:id="@+id/county"
+            <Spinner
+
+                android:id="@+id/spinner"
 
                 android:layout_width="fill_parent"
 
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
 
-                android:layout_margin="5dp"
+                android:paddingLeft="10dp"
 
-                android:layout_marginBottom="15dp"
+                android:paddingRight="10dp"
 
-                android:singleLine="true"/>
+                android:paddingTop="10dp"
+
+                android:textSize="17sp"
+
+                android:layout_centerHorizontal="true"
+
+                android:layout_weight="0.27" />
 
 
             <!-- address -->
@@ -216,12 +223,13 @@
 
                 android:textSize="17sp"/>
 
-            <!-- contact input -->
-            <EditText android:id="@+id/childabusetype"
+            <Spinner
+
+                android:id="@+id/childabusetype"
 
                 android:layout_width="fill_parent"
 
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
 
                 android:paddingLeft="10dp"
 
@@ -229,7 +237,11 @@
 
                 android:paddingTop="10dp"
 
-                android:textSize="17sp"/>
+                android:textSize="17sp"
+
+
+                android:layout_centerHorizontal="true"
+                />
             <TextView
                 android:layout_width="fill_parent"
 

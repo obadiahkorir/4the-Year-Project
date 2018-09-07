@@ -11,8 +11,6 @@
         android:layout_width="fill_parent"
         android:background="#D8D8D8"
         android:layout_height="fill_parent" >
-
-
         <LinearLayout
 
             android:layout_width="match_parent"
@@ -165,18 +163,25 @@
 
                 android:textSize="17sp"/>
 
-            <!-- username input -->
-            <EditText android:id="@+id/county"
+            <Spinner
+
+                android:id="@+id/spinner"
 
                 android:layout_width="fill_parent"
 
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
 
-                android:layout_margin="5dp"
+                android:paddingLeft="10dp"
 
-                android:layout_marginBottom="15dp"
+                android:paddingRight="10dp"
 
-                android:singleLine="true"/>
+                android:paddingTop="10dp"
+
+                android:textSize="17sp"
+
+                android:layout_centerHorizontal="true"
+
+                android:layout_weight="0.27" />
 
 
             <!-- address -->
@@ -188,7 +193,7 @@
 
                 android:ems="10"
 
-                android:text="Email Address"
+                android:text="Reported By:"
 
                 android:paddingLeft="10dp"
 
@@ -228,12 +233,13 @@
 
                 android:textSize="17sp"/>
 
-            <!-- contact input -->
-            <EditText android:id="@+id/thefttype"
+            <Spinner
+
+                android:id="@+id/thefttype"
 
                 android:layout_width="fill_parent"
 
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
 
                 android:paddingLeft="10dp"
 
@@ -241,7 +247,11 @@
 
                 android:paddingTop="10dp"
 
-                android:textSize="17sp"/>
+                android:textSize="17sp"
+
+
+                android:layout_centerHorizontal="true"
+                />
             <TextView
                 android:layout_width="fill_parent"
 
@@ -305,5 +315,4 @@
 
         </LinearLayout>
     </ScrollView>
-
 </android.support.v7.widget.CardView>

@@ -3,12 +3,14 @@ package com.example.obadiahkorir.projects;
 /**
  * Created by CHEMISOFT on 6/22/2018.
  */
+
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
@@ -17,6 +19,7 @@ import android.os.Bundle;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -35,6 +38,7 @@ import android.widget.TimePicker;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -51,15 +55,16 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class HomeFireActivity extends AppCompatActivity  implements
-        View.OnClickListener,LocationListener,AdapterView.OnItemSelectedListener {
-    public Spinner spinner;
-
+public class HomeFireActivity extends AppCompatActivity implements
+        View.OnClickListener, LocationListener, AdapterView.OnItemSelectedListener {
+    public Spinner spinner, spinner2;
+    private SessionHandler session;
     protected LocationManager locationManager;
     protected LocationListener locationListener;
     protected Context context;
@@ -72,13 +77,13 @@ public class HomeFireActivity extends AppCompatActivity  implements
     private int mYear, mMonth, mDay, mHour, mMinute;
     Toolbar toolbar;
     // Creating EditText.
-    EditText FirstName, LastName, Email, Firetype, Contact, Date;
+    EditText FirstName, LastName, Email, Contact, Time, Date;
     // Creating button;
-    Button InsertButton;
+    Button InsertButton, Cancel;
     // Creating Volley RequestQueue.
     RequestQueue requestQueue;
     // Create string variable to hold the EditText Value.
-    String FirstNameHolder, LastNameHolder, EmailHolder,SpinnerHolder, FireTypeHolder, TimeHolder, ContactHolder;
+    String FirstNameHolder, LastNameHolder, EmailHolder, SpinnerHolder, FireTypeHolder, TimeHolder, DateHolder, ContactHolder;
     // Creating Progress dialog.
     ProgressDialog progressDialog;
     // Storing server url into String variable.
@@ -89,25 +94,41 @@ public class HomeFireActivity extends AppCompatActivity  implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_fire);
 
+        session = new SessionHandler(getApplicationContext());
+        User user = session.getUserDetails();
+
         toolbar = (Toolbar) findViewById(R.id.back);
         toolbar.setNavigationIcon(R.drawable.back_arrow);
         toolbar.setTitle("Report Fire Incident.");
         LastName = (EditText) findViewById(R.id.editTextLastName);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
         // Assigning ID's to EditText.
+
         FirstName = (EditText) findViewById(R.id.editTextFirstName);
         LastName = (EditText) findViewById(R.id.editTextLastName);
         Email = (EditText) findViewById(R.id.editTextEmail);
+        Email.setText(user.getFullName());
         Contact = (EditText) findViewById(R.id.contact);
-        Firetype = (EditText) findViewById(R.id.firetype);
         Date = (EditText) findViewById(R.id.in_date);
+        Time = (EditText) findViewById(R.id.in_time);
         txtDate = (EditText) findViewById(R.id.in_date);
         txtTime = (EditText) findViewById(R.id.in_time);
         txtDate.setOnClickListener(this);
         txtTime.setOnClickListener(this);
-        EditText autoD8 = (EditText)findViewById(R.id.in_date);
-        EditText autoTime = (EditText)findViewById(R.id.in_time);
+        Cancel= (Button) findViewById(R.id.btncancel);
+        EditText autoD8 = (EditText) findViewById(R.id.in_date);
+        EditText autoTime = (EditText) findViewById(R.id.in_time);
 
         SimpleDateFormat dateF = new SimpleDateFormat("EEE, d MMM yyyy", Locale.getDefault());
         SimpleDateFormat timeF = new SimpleDateFormat("HH:mm", Locale.getDefault());
@@ -115,9 +136,17 @@ public class HomeFireActivity extends AppCompatActivity  implements
         String time = timeF.format(Calendar.getInstance().getTime());
         autoD8.setText(date);
         autoTime.setText(time);
+        Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(i);
+                HomeFireActivity.this.overridePendingTransition(R.anim.push_left_in,
+                        R.anim.push_left_out);
+            }
+        });
 
         spinner = (Spinner) findViewById(R.id.spinner);
-
         List<String> list = new ArrayList<String>();
         list.add("Please Select the County");
         list.add("Kilifi County");
@@ -174,6 +203,26 @@ public class HomeFireActivity extends AppCompatActivity  implements
 
         spinner.setAdapter(dataAdapter);
         spinner.setOnItemSelectedListener(this);
+
+        spinner2 = (Spinner) findViewById(R.id.fireclass);
+        List<String> firetype = new ArrayList<String>();
+        firetype.add("Please Select FireType");
+        firetype.add("Class A (Solid Material)");
+        firetype.add("Class B (Flammable Liguids)");
+        firetype.add("Class C (Gases)");
+        firetype.add("Class D (Metals)");
+        firetype.add("Class E (Electrical)");
+        firetype.add("Class F (Cooking Oils)");
+
+
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>
+                (this, android.R.layout.simple_spinner_item, firetype);
+
+                dataAdapter2.setDropDownViewResource
+                (android.R.layout.simple_spinner_dropdown_item);
+
+        spinner2.setAdapter(dataAdapter2);
+        spinner2.setOnItemSelectedListener(this);
         // Assigning ID's to Button.
         InsertButton = (Button) findViewById(R.id.ButtonInsert);
 
@@ -205,7 +254,7 @@ public class HomeFireActivity extends AppCompatActivity  implements
 
                                 // Showing response message coming from server.
                                 Toast.makeText(HomeFireActivity.this, ServerResponse, Toast.LENGTH_LONG).show();
-                                Intent i = new Intent(getApplicationContext(),MyLocationUsingLocationAPI.class);
+                                Intent i = new Intent(getApplicationContext(), FireLocationActivity.class);
                                 startActivity(i);
                                 HomeFireActivity.this.overridePendingTransition(R.anim.push_left_in,
                                         R.anim.push_left_out);
@@ -237,6 +286,7 @@ public class HomeFireActivity extends AppCompatActivity  implements
                         params.put("firetime", TimeHolder);
                         params.put("contact", ContactHolder);
                         params.put("county", SpinnerHolder);
+                        params.put("date", DateHolder);
 
 
                         return params;
@@ -252,8 +302,8 @@ public class HomeFireActivity extends AppCompatActivity  implements
 
             }
         });
-
     }
+
 
     // Creating method to get value from EditText.
     public void GetValueFromEditText() {
@@ -273,14 +323,9 @@ public class HomeFireActivity extends AppCompatActivity  implements
             Email.setError("Please Enter Email Address.");
             return;
         }
-        FireTypeHolder = Firetype.getText().toString().trim();
-        if(TextUtils.isEmpty(FireTypeHolder)) {
-            Firetype.setError("Please Enter Fire Type.");
-            return;
-        }
-        TimeHolder= Date.getText().toString().trim();
+        TimeHolder= Time.getText().toString().trim();
         if(TextUtils.isEmpty( TimeHolder)) {
-            Date.setError("Please Select Date.");
+            Time.setError("Please Select Date.");
             return;
         }
         ContactHolder= Contact.getText().toString().trim();
@@ -288,7 +333,14 @@ public class HomeFireActivity extends AppCompatActivity  implements
             Contact.setError("Please Enter Contact.");
             return;
         }
-    SpinnerHolder =spinner.getSelectedItem().toString().trim();
+        DateHolder= Date.getText().toString().trim();
+        if(TextUtils.isEmpty( DateHolder)) {
+            Date.setError("Please Select Date.");
+            return;
+        }
+        SpinnerHolder =spinner.getSelectedItem().toString().trim();
+        FireTypeHolder =spinner2.getSelectedItem().toString().trim();
+
 
     }
 
@@ -434,7 +486,7 @@ public class HomeFireActivity extends AppCompatActivity  implements
         // TODO Auto-generated method stub
         String selected = parent.getItemAtPosition(position).toString();
         ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
-        ((TextView) parent.getChildAt(0)).setTextSize(28);
+        ((TextView) parent.getChildAt(0)).setTextSize(18);
 
         if (selected.equals("Please Select Your County")) {
 

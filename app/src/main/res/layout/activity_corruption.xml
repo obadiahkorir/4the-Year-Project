@@ -69,7 +69,7 @@
 
                 android:textSize="17sp"/>
 
-            <!-- lastname input -->
+
             <EditText android:id="@+id/editLocation"
 
                 android:layout_width="fill_parent"
@@ -82,34 +82,7 @@
                 android:layout_marginBottom="15dip"
 
                 android:singleLine="true"/>
-            <TextView android:layout_width="fill_parent"
 
-                android:layout_height="wrap_content"
-
-                android:text="Corruption Location:"
-
-                android:paddingLeft="10dp"
-
-                android:paddingRight="10dp"
-
-                android:paddingTop="10dp"
-
-                android:textSize="17sp"/>
-
-            <!-- lastname input -->
-            <EditText android:id="@+id/tvPlaceDetails"
-
-                android:layout_width="fill_parent"
-
-                android:layout_height="wrap_content"
-
-                android:layout_margin="5dp"
-
-                android:layout_marginBottom="15dip"
-
-                android:singleLine="true"/>
-
-            <!-- username -->
             <TextView android:layout_width="fill_parent"
 
                 android:layout_height="wrap_content"
@@ -251,12 +224,13 @@
 
                 android:textSize="17sp"/>
 
-            <!-- contact input -->
-            <EditText android:id="@+id/corruptiontype"
+            <Spinner
+
+                android:id="@+id/corruptclass"
 
                 android:layout_width="fill_parent"
 
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
 
                 android:paddingLeft="10dp"
 
@@ -264,7 +238,11 @@
 
                 android:paddingTop="10dp"
 
-                android:textSize="17sp"/>
+                android:textSize="17sp"
+
+
+                android:layout_centerHorizontal="true"
+                />
             <TextView
                 android:layout_width="fill_parent"
 

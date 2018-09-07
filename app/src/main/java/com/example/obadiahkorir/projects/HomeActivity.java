@@ -307,7 +307,7 @@ public class HomeActivity extends AppCompatActivity
 
         }
         else if (id == R.id.nav_search) {
-            Intent i = new Intent(getApplicationContext(),MapsActivity.class);
+            Intent i = new Intent(getApplicationContext(),SliderImageActivity.class);
             startActivity(i);
             HomeActivity.this.overridePendingTransition(R.anim.push_left_in,
                     R.anim.push_left_out);
@@ -319,7 +319,7 @@ public class HomeActivity extends AppCompatActivity
                     R.anim.push_left_out);
 
         } else if (id == R.id.nav_chat) {
-            Intent i = new Intent(getApplicationContext(),ChatActivity.class);
+            Intent i = new Intent(getApplicationContext(),HospitalActivity.class);
             startActivity(i);
             HomeActivity.this.overridePendingTransition(R.anim.zoom_in,
                     R.anim.zoom_out);
@@ -411,7 +411,7 @@ public class HomeActivity extends AppCompatActivity
             showCurrentPlace();
         }
         if (item.getItemId() == R.id.action_image) {
-            Intent i = new Intent(getApplicationContext(),UploadImageActivity.class);
+            Intent i = new Intent(getApplicationContext(),ImageActivity.class);
             startActivity(i);
             HomeActivity.this.overridePendingTransition(R.anim.push_left_in,
                     R.anim.push_left_out);
@@ -760,7 +760,7 @@ public class HomeActivity extends AppCompatActivity
 
     @SuppressLint("NewApi")
     public void NextOfKinFunction() {
-        Intent i = new Intent(getApplicationContext(),NextofKinActivity.class);
+        Intent i = new Intent(getApplicationContext(),HomeActivity.class);
         startActivity(i);
         HomeActivity.this.overridePendingTransition(R.anim.push_left_in,
                 R.anim.push_left_out);
@@ -781,7 +781,7 @@ public class HomeActivity extends AppCompatActivity
     }
     @SuppressLint("NewApi")
     public void AmbulanceFunction() {
-        Intent i = new Intent(getApplicationContext(),AmbulanceActivity.class);
+        Intent i = new Intent(getApplicationContext(),HospitalActivity.class);
         startActivity(i);
       HomeActivity.this.overridePendingTransition(R.anim.push_left_in,
                 R.anim.push_left_out);

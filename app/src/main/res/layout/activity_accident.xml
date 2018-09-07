@@ -228,12 +228,13 @@
 
                 android:textSize="17sp"/>
 
-            <!-- contact input -->
-            <EditText android:id="@+id/accidenttype"
+            <Spinner
+
+                android:id="@+id/accidenttype"
 
                 android:layout_width="fill_parent"
 
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
 
                 android:paddingLeft="10dp"
 
@@ -241,7 +242,11 @@
 
                 android:paddingTop="10dp"
 
-                android:textSize="17sp"/>
+                android:textSize="17sp"
+
+
+                android:layout_centerHorizontal="true"
+                />
             <TextView
                 android:layout_width="fill_parent"
 

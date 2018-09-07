@@ -27,7 +27,7 @@ public class HotlineActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
 
-    String HTTP_JSON_URL = "https://chemisoftsolutions.000webhostapp.com/android/ImageJsonData.php";
+    String HTTP_JSON_URL = "https://chemisoftsolutions.000webhostapp.com/android/contacts.php";
 
     String Image_Name_JSON = "image_title";
 

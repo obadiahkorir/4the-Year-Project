@@ -14,8 +14,8 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        tools:context="com.simba.glinde.Premium"
         android:weightSum="1">
+
         <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="10"
+                android:text="50"
 
                 android:layout_marginLeft="28dp"
                 android:layout_marginStart="28dp"
@@ -56,11 +56,10 @@
         <EditText
             android:id="@+id/etPhoneNumber"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="20dp"
             android:hint="Enter Amount"
             android:background="@drawable/roundtextview"
-
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:textStyle="normal|italic" />

@@ -32,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     private String confirmPassword;
     private String fullName;
     private ProgressDialog pDialog;
-    private String register_url = "https://chemisoftsolutions.000webhostapp.com/android/registers.php";
+    private String register_url = "https://chemisoftsolutions.000webhostapp.com/android/register.php";
     private SessionHandler session;
 
     @Override
@@ -153,10 +153,6 @@ public class RegisterActivity extends AppCompatActivity {
         MySingleton.getInstance(this).addToRequestQueue(jsArrayRequest);
     }
 
-    /**
-     * Validates inputs and shows error if any
-     * @return
-     */
     private boolean validateInputs() {
         if (KEY_EMPTY.equals(fullName)) {
             etFullName.setError("Full Name cannot be empty");

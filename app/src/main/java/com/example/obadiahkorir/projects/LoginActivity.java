@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     private String username;
     private String password;
     private ProgressDialog pDialog;
-    private String login_url = "https://chemisoftsolutions.000webhostapp.com/android/logins.php";
+    private String login_url = "https://chemisoftsolutions.000webhostapp.com/android/login.php";
     private SessionHandler session;
 
     @Override

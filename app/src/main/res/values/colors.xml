@@ -4,6 +4,7 @@
     <color name="bg_bubble_self">#62caa6</color>
     <color name="bg_bubble_watbot">#ecf0f1</color>
 
+    <color name="titleFont">#201B1A</color>
     <color name="card_action_inverted">@android:color/white</color>
 
     <color name="card_content_textcolor">#444</color>

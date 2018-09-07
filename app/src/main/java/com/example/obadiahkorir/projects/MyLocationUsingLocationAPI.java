@@ -56,17 +56,19 @@ public class MyLocationUsingLocationAPI extends AppCompatActivity implements Con
         OnConnectionFailedListener,OnRequestPermissionsResultCallback,
         PermissionUtils.PermissionResultCallback {
 
+    TextView UserName;
+    private SessionHandler session;
     String LocationHolder,EmailHolder;
     // Creating Volley RequestQueue.
     RequestQueue requestQueue;
 
     // Storing server url into String variable.
-    String HttpUrl = "https://chemisoftsolutions.000webhostapp.com/android/insert_record.php";
+    String HttpUrl = "https://chemisoftsolutions.000webhostapp.com/android/fire_location.php";
     ProgressDialog progressDialog;
     @BindView(R.id.btnLocation)Button btnProceed;
     @BindView(R.id.tvAddress)TextView tvAddress;
     @BindView(R.id.tvEmpty)TextView tvEmpty;
-    @BindView(R.id.emails)EditText emails;
+    @BindView(R.id.userName)TextView userName;
     @BindView(R.id.rlPickLocation)RelativeLayout rlPick;
 
 
@@ -97,6 +99,9 @@ public class MyLocationUsingLocationAPI extends AppCompatActivity implements Con
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_service);
 
+        session = new SessionHandler(getApplicationContext());
+        User user = session.getUserDetails();
+
         requestQueue = Volley.newRequestQueue(MyLocationUsingLocationAPI.this);
 
         progressDialog = new ProgressDialog(MyLocationUsingLocationAPI.this);
@@ -108,7 +113,7 @@ public class MyLocationUsingLocationAPI extends AppCompatActivity implements Con
         permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
 
         permissionUtils.check_permission(permissions,"Need GPS permission for getting your location",1);
-
+        userName.setText(user.getFullName());
 
         rlPick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -208,7 +213,7 @@ public class MyLocationUsingLocationAPI extends AppCompatActivity implements Con
     public void GetValueFromEditText(){
 
         LocationHolder = tvAddress.getText().toString().trim();
-        EmailHolder = emails.getText().toString().trim();
+        EmailHolder = userName.getText().toString().trim();
 
 
     }

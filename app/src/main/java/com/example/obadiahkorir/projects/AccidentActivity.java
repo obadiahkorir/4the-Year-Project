@@ -4,11 +4,13 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -24,6 +26,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -37,17 +40,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
+
 import java.util.Calendar;
 
 
-public class AccidentActivity extends AppCompatActivity  implements
-        View.OnClickListener,LocationListener,AdapterView.OnItemSelectedListener {
-    public Spinner spinner;
+public class AccidentActivity extends AppCompatActivity implements
+        View.OnClickListener, LocationListener, AdapterView.OnItemSelectedListener {
+    public Spinner spinner, spinner2;
     protected LocationManager locationManager;
     protected LocationListener locationListener;
     protected Context context;
@@ -66,7 +71,7 @@ public class AccidentActivity extends AppCompatActivity  implements
     // Creating Volley RequestQueue.
     RequestQueue requestQueue;
     // Create string variable to hold the EditText Value.
-    String FirstNameHolder, LastNameHolder, EmailHolder,SpinnerHolder, CountyHolder, AccidentTypeHolder, TimeHolder, ContactHolder;
+    String FirstNameHolder, LastNameHolder, EmailHolder, SpinnerHolder, CountyHolder, AccidentTypeHolder, TimeHolder, ContactHolder;
     // Creating Progress dialog.
     ProgressDialog progressDialog;
     // Storing server url into String variable.
@@ -84,21 +89,26 @@ public class AccidentActivity extends AppCompatActivity  implements
         FirstName = (EditText) findViewById(R.id.editTextFirstName);
         LastName = (EditText) findViewById(R.id.editTextLastName);
         Email = (EditText) findViewById(R.id.editTextEmail);
-        County = (EditText) findViewById(R.id.county);
         Contact = (EditText) findViewById(R.id.contact);
-        Accidenttype = (EditText) findViewById(R.id.accidenttype);
         Date = (EditText) findViewById(R.id.in_date);
         txtDate = (EditText) findViewById(R.id.in_date);
         txtTime = (EditText) findViewById(R.id.in_time);
         txtDate.setOnClickListener(this);
         txtTime.setOnClickListener(this);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-
         EditText autoD8 = (EditText) findViewById(R.id.in_date);
         EditText autoTime = (EditText) findViewById(R.id.in_time);
-
         SimpleDateFormat dateF = new SimpleDateFormat("EEE, d MMM yyyy", Locale.getDefault());
         SimpleDateFormat timeF = new SimpleDateFormat("HH:mm", Locale.getDefault());
         String date = dateF.format(Calendar.getInstance().getTime());
@@ -164,6 +174,24 @@ public class AccidentActivity extends AppCompatActivity  implements
 
         spinner.setAdapter(dataAdapter);
         spinner.setOnItemSelectedListener(this);
+
+        spinner2 = (Spinner) findViewById(R.id.accidenttype);
+        List<String> acccident = new ArrayList<String>();
+        acccident.add("Please Select Corruption Level");
+        acccident.add("Grand corruption");
+        acccident.add("Petty corruption");
+        acccident.add("Political corruption");
+        acccident.add("Sporadic corruption");
+        acccident.add("Systemic corruption");
+
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>
+                (this, android.R.layout.simple_spinner_item, acccident);
+
+        dataAdapter2.setDropDownViewResource
+                (android.R.layout.simple_spinner_dropdown_item);
+
+        spinner2.setAdapter(dataAdapter2);
+        spinner2.setOnItemSelectedListener(this);
         // Assigning ID's to Button.
         InsertButton = (Button) findViewById(R.id.ButtonInsert);
 
@@ -258,11 +286,6 @@ public class AccidentActivity extends AppCompatActivity  implements
             Email.setError("Please Enter Email Address.");
             return;
         }
-        AccidentTypeHolder = Accidenttype.getText().toString().trim();
-        if(TextUtils.isEmpty(AccidentTypeHolder)) {
-            Accidenttype.setError("Please Enter Fire Type.");
-            return;
-        }
         TimeHolder= Date.getText().toString().trim();
         if(TextUtils.isEmpty( TimeHolder)) {
             Date.setError("Please Select Date.");
@@ -274,6 +297,7 @@ public class AccidentActivity extends AppCompatActivity  implements
             return;
         }
         SpinnerHolder =spinner.getSelectedItem().toString().trim();
+        AccidentTypeHolder =spinner2.getSelectedItem().toString().trim();
 
 
     }
