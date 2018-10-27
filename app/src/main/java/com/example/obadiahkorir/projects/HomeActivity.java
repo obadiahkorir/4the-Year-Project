@@ -1,6 +1,7 @@
 package com.example.obadiahkorir.projects;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -73,7 +74,8 @@ public class HomeActivity extends AppCompatActivity
     LinearLayout nextofkin,firelayout,police_layout,theft_layout,corruption_layout,locationstatisticslinear,phone_layout,attack_layout,accident_layout,gallery_layout,childabuse,layout_premium,ambulancelayout;
 
     private SessionHandler session;
-
+    /** progressDialog variable*/
+    public static ProgressDialog progressDialog;
     protected GoogleApiClient mGoogleApiClient;
     protected LocationRequest locationRequest;
     int REQUEST_CHECK_SETTINGS = 100;
@@ -300,14 +302,19 @@ public class HomeActivity extends AppCompatActivity
                     R.anim.push_left_out);
 
     } else if (id == R.id.nav_profile) {
-            Intent i = new Intent(getApplicationContext(),MyLocationUsingLocationAPI.class);
+            Intent i = new Intent(getApplicationContext(), MyLocationUsingLocationAPI.class);
             startActivity(i);
             HomeActivity.this.overridePendingTransition(R.anim.push_left_in,
                     R.anim.push_left_out);
-
+        }
+         else if (id == R.id.nav_aid) {
+                Intent i = new Intent(getApplicationContext(),first_aid.class);
+                startActivity(i);
+                HomeActivity.this.overridePendingTransition(R.anim.push_left_in,
+                        R.anim.push_left_out);
         }
         else if (id == R.id.nav_search) {
-            Intent i = new Intent(getApplicationContext(),SliderImageActivity.class);
+            Intent i = new Intent(getApplicationContext(),SpecialNeeds.class);
             startActivity(i);
             HomeActivity.this.overridePendingTransition(R.anim.push_left_in,
                     R.anim.push_left_out);
@@ -336,7 +343,7 @@ public class HomeActivity extends AppCompatActivity
                     R.anim.zoom_out);
 
         }  else if (id == R.id.nav_logout) {
-            Intent i = new Intent(getApplicationContext(),LoginActivity.class);
+            Intent i = new Intent(getApplicationContext(),LoginActivity2.class);
             startActivity(i);
             HomeActivity.this.overridePendingTransition(R.anim.zoom_in,
                     R.anim.zoom_out);
@@ -760,7 +767,7 @@ public class HomeActivity extends AppCompatActivity
 
     @SuppressLint("NewApi")
     public void NextOfKinFunction() {
-        Intent i = new Intent(getApplicationContext(),HomeActivity.class);
+        Intent i = new Intent(getApplicationContext(),ChatbotActivity.class);
         startActivity(i);
         HomeActivity.this.overridePendingTransition(R.anim.push_left_in,
                 R.anim.push_left_out);
@@ -795,7 +802,7 @@ public class HomeActivity extends AppCompatActivity
     }
     @SuppressLint("NewApi")
     public void ContactsFunction() {
-        Intent i = new Intent(getApplicationContext(),HotlineActivity.class);
+        Intent i = new Intent(getApplicationContext(),Contacts_MainActivity.class);
         startActivity(i);
        HomeActivity.this.overridePendingTransition(R.anim.push_left_in,
                 R.anim.push_left_out);
@@ -811,7 +818,7 @@ public class HomeActivity extends AppCompatActivity
 
     @SuppressLint("NewApi")
     public void  PremiumFunction() {
-        Intent i = new Intent(getApplicationContext(),Premium.class);
+        Intent i = new Intent(getApplicationContext(),StatisticsActivity.class);
         startActivity(i);
         HomeActivity.this.overridePendingTransition(R.anim.push_left_in,
                 R.anim.push_left_out);

@@ -26,7 +26,7 @@ import java.io.InputStreamReader;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-public class HttpServicesClass {
+public class HttpServicesClass{
     public int responseCode;
 
     public String message;

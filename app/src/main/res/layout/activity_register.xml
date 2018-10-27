@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:layout_marginTop="8dp"
-            android:hint="Full Names"
+            android:hint="Enter Full Names"
             android:inputType="text" />
         <EditText
             android:id="@+id/etUsername"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
             android:layout_marginTop="8dp"
-            android:hint="UserName"
+            android:hint="Enter UserName"
             android:inputType="text" />
 
         <android.support.design.widget.TextInputLayout
@@ -66,7 +66,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginTop="1dp"
             android:fontFamily="sans-serif"
-            android:hint="Password"
+            android:hint="Enter Password"
             android:inputType="textPassword" />
 
         <android.support.design.widget.TextInputLayout
@@ -81,6 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="8dp">
+        </android.support.design.widget.TextInputLayout>
             <EditText
                 android:id="@+id/etConfirmPassword"
                 android:layout_width="match_parent"
@@ -88,10 +89,14 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="1dp"
                 android:fontFamily="sans-serif"
-                android:hint="Confirm Password"
+                android:hint="Please Confirm Password"
                 android:inputType="textPassword" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="8dp">
         </android.support.design.widget.TextInputLayout>
-
 
         <Button
             android:id="@+id/btnRegister"

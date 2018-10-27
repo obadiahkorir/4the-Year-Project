@@ -10,8 +10,13 @@
     <permission
         android:name="in.wptrafficanalyzer.locationplacedetailsv2.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
-
-
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="com.androidtutorialpoint.mymapsappsdirection.permission.MAPS_RECEIVE" />
     <uses-permission android:name="in.wptrafficanalyzer.locationplacedetailsv2.permission.MAPS_RECEIVE" />
@@ -50,9 +55,11 @@
         <meta-data
             android:name="com.facebook.accountkit.FacebookAppEventsEnabled"
             android:value="false" />
-
+        <service
+            android:name=".FetchAddressIntentService"
+            android:exported="false"/>
         <activity
-            android:name=".SplashActivity"
+            android:name=".StartActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -119,6 +126,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".SpecialNeeds">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".LoginActivity"
             android:label="Login"
@@ -130,8 +144,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".BottomActivity"
-            android:label="Test">
+            android:name=".ThirdActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PoliceActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity2"
+            android:label="Login"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -164,7 +197,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".StatisticsActivity"
+            android:label="STATISTICS">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps">
@@ -265,14 +306,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".PoliceActivity"
-            android:label="POLICE PROFILE">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+
         <activity
             android:name=".TheftActivity"
             android:label="THEFT PROFILE">
@@ -436,14 +470,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TestLocation"
-            android:label="About Us">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".RateUsActivity"
             android:label="Rate Us">
             <intent-filter>
@@ -457,6 +483,13 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".HotlineActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Contacts_MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -484,6 +517,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".ChatbotActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ViewFireActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".DetailsActivity"
             android:theme="@style/Transparent"
             />
@@ -501,10 +546,10 @@
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity android:name=".Medical.MedicalProblems" />
         <activity android:name=".Medical.RequiredMedicines" />
         <activity android:name=".Web.WebsiteView" />
@@ -512,9 +557,13 @@
         <activity
             android:name=".NearbyLocations.GMap.MapsActivity"
             android:label="@string/title_activity_maps"></activity>
-
-        <service android:name=".BrainService"
-            android:icon="@drawable/ic_launcher"
-            android:label="@string/app_name" />
+        <activity android:name=".chat" />
+        <activity android:name=".first_aid"/>
+        <activity android:name=".self" />
+        <activity android:name=".elec" />
+        <activity android:name=".drown" />
+        <activity android:name=".open" />
+        <activity android:name=".burns" />
+        <activity android:name=".LearningActivity"></activity>
     </application>
 </manifest>

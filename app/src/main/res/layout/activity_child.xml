@@ -74,7 +74,7 @@
                 android:layout_width="fill_parent"
 
                 android:layout_height="wrap_content"
-
+                android:hint="Please Wait for Location Detection"
                 android:layout_margin="5dp"
 
                 android:layout_marginBottom="15dip"

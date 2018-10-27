@@ -73,7 +73,7 @@
             <EditText android:id="@+id/editTextLastName"
 
                 android:layout_width="fill_parent"
-                android:hint="Please Select Location"
+                android:hint="Please Wait for Location Detection"
                 android:layout_height="wrap_content"
 
                 android:layout_margin="5dp"

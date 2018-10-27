@@ -134,7 +134,9 @@
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Please Confirm Your Place Name."
+        android:text="Posted By."
+        android:textColor="@color/bg_screen1"
+        android:textSize="26dp"
         android:layout_below="@+id/card_view"
         android:layout_centerHorizontal="true" />
 
@@ -157,6 +159,9 @@
         android:src="@drawable/ic_location_searching"
         android:layout_marginLeft="@dimen/fab_margin"
         android:layout_marginRight="@dimen/fab_margin"
-        android:layout_marginBottom="@dimen/fab_margin" />
+        android:layout_alignTop="@+id/userName"
+        android:layout_alignEnd="@+id/card_view"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="22dp" />
 
 </RelativeLayout>

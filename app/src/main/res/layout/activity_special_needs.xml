@@ -9,34 +9,34 @@
         android:id="@+id/txt_output"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
         android:background="@color/blue"
-        android:hint="You said Text"
+        android:hint="You Said Text"
         android:textAlignment="center"
         android:textColorHint="@color/dark_red"
         android:textColor="@color/white"
         android:textSize="30dp"
-        android:textStyle="normal"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="57dp" />
+        android:textStyle="normal" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_marginTop="46dp"
+        android:weightSum="1"
         android:layout_below="@+id/txt_output"
         android:layout_centerHorizontal="true"
-        android:id="@+id/linearLayout3">
+        android:layout_marginTop="18dp">
 
         <ImageView
             android:id="@+id/btnSpeak"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:layout_width="127dp"
+            android:layout_height="75dp"
             android:background="@null"
-            android:src="@drawable/ico_mic" />
+            android:src="@drawable/ico_mic"
+            android:layout_weight="3.96" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -49,23 +49,12 @@
 
         <ImageView
             android:id="@+id/btnCall"
-            android:layout_width="75dp"
+            android:layout_width="111dp"
             android:layout_height="75dp"
             android:background="@null"
-            android:src="@drawable/call" />
+            android:src="@drawable/call"
+            android:layout_weight="0.88" />
 
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/panic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/pp2"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/linearLayout3"
-        android:layout_alignStart="@+id/linearLayout3"
-        android:layout_marginLeft="119dp"
-        android:layout_marginStart="119dp"
-        android:layout_marginBottom="11dp" />
 </RelativeLayout>

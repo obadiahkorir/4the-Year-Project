@@ -53,6 +53,7 @@ import java.util.Calendar;
 public class AccidentActivity extends AppCompatActivity implements
         View.OnClickListener, LocationListener, AdapterView.OnItemSelectedListener {
     public Spinner spinner, spinner2;
+    private SessionHandler session;
     protected LocationManager locationManager;
     protected LocationListener locationListener;
     protected Context context;
@@ -67,7 +68,7 @@ public class AccidentActivity extends AppCompatActivity implements
     // Creating EditText.
     EditText FirstName, LastName, Email, County, Accidenttype, Contact, Date;
     // Creating button;
-    Button InsertButton;
+    Button InsertButton,Cancel;
     // Creating Volley RequestQueue.
     RequestQueue requestQueue;
     // Create string variable to hold the EditText Value.
@@ -82,6 +83,9 @@ public class AccidentActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accident);
 
+        session = new SessionHandler(getApplicationContext());
+        User user = session.getUserDetails();
+
         toolbar = (Toolbar) findViewById(R.id.back);
         toolbar.setNavigationIcon(R.drawable.back_arrow);
         toolbar.setTitle("Report Accident Incident.");
@@ -89,10 +93,12 @@ public class AccidentActivity extends AppCompatActivity implements
         FirstName = (EditText) findViewById(R.id.editTextFirstName);
         LastName = (EditText) findViewById(R.id.editTextLastName);
         Email = (EditText) findViewById(R.id.editTextEmail);
+        Email.setText(user.getFullName());
         Contact = (EditText) findViewById(R.id.contact);
         Date = (EditText) findViewById(R.id.in_date);
         txtDate = (EditText) findViewById(R.id.in_date);
         txtTime = (EditText) findViewById(R.id.in_time);
+        Cancel= (Button) findViewById(R.id.btncancel);
         txtDate.setOnClickListener(this);
         txtTime.setOnClickListener(this);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -115,6 +121,16 @@ public class AccidentActivity extends AppCompatActivity implements
         String time = timeF.format(Calendar.getInstance().getTime());
         autoD8.setText(date);
         autoTime.setText(time);
+
+        Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(i);
+                AccidentActivity.this.overridePendingTransition(R.anim.push_left_in,
+                        R.anim.push_left_out);
+            }
+        });
 
         spinner = (Spinner) findViewById(R.id.spinner);
 
@@ -177,12 +193,12 @@ public class AccidentActivity extends AppCompatActivity implements
 
         spinner2 = (Spinner) findViewById(R.id.accidenttype);
         List<String> acccident = new ArrayList<String>();
-        acccident.add("Please Select Corruption Level");
-        acccident.add("Grand corruption");
-        acccident.add("Petty corruption");
-        acccident.add("Political corruption");
-        acccident.add("Sporadic corruption");
-        acccident.add("Systemic corruption");
+        acccident.add("Please Select Accident Type");
+        acccident.add("Road accident");
+        acccident.add("Medical negligence");
+        acccident.add("Slip or trip accident ");
+        acccident.add("Motorbike Accident");
+        acccident.add("Lifting and Handling Accident");
 
         ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>
                 (this, android.R.layout.simple_spinner_item, acccident);

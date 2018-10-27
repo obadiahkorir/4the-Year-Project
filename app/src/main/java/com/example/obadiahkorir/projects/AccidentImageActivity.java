@@ -66,15 +66,15 @@ public class AccidentImageActivity extends AppCompatActivity {
 
         User user = session.getUserDetails();
 
-        imageView = (ImageView)findViewById(R.id.imageView);
+        imageView = (ImageView) findViewById(R.id.imageView);
 
-        imageName = (EditText)findViewById(R.id.editTextImageName);
+        imageName = (EditText) findViewById(R.id.editTextImageName);
 
-        imageName.setText(""+user.getFullName());
+        imageName.setText("" + user.getFullName());
 
-        SelectImageGallery = (Button)findViewById(R.id.buttonSelect);
+        SelectImageGallery = (Button) findViewById(R.id.buttonSelect);
 
-        UploadImageServer = (Button)findViewById(R.id.buttonUpload);
+        UploadImageServer = (Button) findViewById(R.id.buttonUpload);
 
         SelectImageGallery.setOnClickListener(new View.OnClickListener() {
             @Override

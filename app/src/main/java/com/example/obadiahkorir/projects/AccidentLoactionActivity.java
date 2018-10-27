@@ -61,7 +61,6 @@ public class AccidentLoactionActivity extends AppCompatActivity implements Googl
     String LocationHolder,EmailHolder;
     // Creating Volley RequestQueue.
     RequestQueue requestQueue;
-
     // Storing server url into String variable.
     String HttpUrl = "https://chemisoftsolutions.000webhostapp.com/android/accident_location.php";
     ProgressDialog progressDialog;
@@ -70,30 +69,19 @@ public class AccidentLoactionActivity extends AppCompatActivity implements Googl
     @BindView(R.id.tvEmpty)TextView tvEmpty;
     @BindView(R.id.userName)TextView userName;
     @BindView(R.id.rlPickLocation)RelativeLayout rlPick;
-
-
     // LogCat tag
     private static final String TAG = MyLocationUsingHelper.class.getSimpleName();
-
     private final static int PLAY_SERVICES_REQUEST = 1000;
     private final static int REQUEST_CHECK_SETTINGS = 2000;
-
     private Location mLastLocation;
-
     // Google client to interact with Google API
-
     private GoogleApiClient mGoogleApiClient;
-
     double latitude;
     double longitude;
-
     // list of permissions
-
     ArrayList<String> permissions=new ArrayList<>();
     PermissionUtils permissionUtils;
-
     boolean isPermissionGranted;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,13 +117,10 @@ public class AccidentLoactionActivity extends AppCompatActivity implements Googl
 
                     if(btnProceed.isEnabled())
                         btnProceed.setEnabled(false);
-
                     showToast("Couldn't get the location. Make sure location is enabled on the device");
                 }
             }
         });
-
-
 
         btnProceed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -211,7 +196,6 @@ public class AccidentLoactionActivity extends AppCompatActivity implements Googl
     }
     // Creating method to get value from EditText.
     public void GetValueFromEditText(){
-
         LocationHolder = tvAddress.getText().toString().trim();
         EmailHolder = userName.getText().toString().trim();
 
@@ -257,7 +241,6 @@ public class AccidentLoactionActivity extends AppCompatActivity implements Googl
         return null;
 
     }
-
 
     public void getAddress()
     {

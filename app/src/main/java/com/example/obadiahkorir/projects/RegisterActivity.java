@@ -25,6 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
     private static final String KEY_EMPTY = "";
     private EditText etUsername;
     private EditText etPassword;
+    private EditText etContacts;
     private EditText etConfirmPassword;
     private EditText etFullName;
     private String username;
@@ -45,7 +46,6 @@ public class RegisterActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         etConfirmPassword = findViewById(R.id.etConfirmPassword);
         etFullName = findViewById(R.id.etFullName);
-
        TextView login = findViewById(R.id.btnRegisterLogin);
         TextView register = findViewById(R.id.btnRegister);
 

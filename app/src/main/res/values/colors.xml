@@ -58,6 +58,12 @@
     <color name="secpage">#02f2c2</color>
     <color name="sevenpage">#f22e02</color>
     <color name="myTextviewColor">#3A66A7</color>
+    <color name="backgroundcolor">#fcfcfc</color>>
+    <color name="deeppurple">#7c4dff</color>
+    <color name="yello">#fdfa21</color>>
+    <color name="testcolorblue">#152b38</color>
+
+    <color name="black_overlay">#66000000</color>
     <color name="myFabColor">#3A66A7</color>
     <color name="grey_1">#F6FBFF</color>
     <color name="grey_2">#EEEEEE</color>

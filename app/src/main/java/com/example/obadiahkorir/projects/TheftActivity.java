@@ -164,12 +164,16 @@ public class TheftActivity extends AppCompatActivity  implements
         spinner.setOnItemSelectedListener(this);
         spinner2 = (Spinner) findViewById(R.id.thefttype);
         List<String> thefttype = new ArrayList<String>();
-        thefttype.add("Please Select Corruption Level");
-        thefttype.add("Grand corruption");
-        thefttype.add("Petty corruption");
-        thefttype.add("Political corruption");
-        thefttype.add("Sporadic corruption");
-        thefttype.add("Systemic corruption");
+        thefttype.add("Please Select Theft Type");
+        thefttype.add("Petty Theft");
+        thefttype.add("Grand Theft");
+        thefttype.add("Armed Robbery");
+        thefttype.add("Embezzlement");
+        thefttype.add("Shoplifting");
+        thefttype.add("Financial Theft");
+        thefttype.add("Fraud");
+        thefttype.add("Car theft");
+        thefttype.add("Child Theft");
         ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>
                 (this, android.R.layout.simple_spinner_item, thefttype);
 

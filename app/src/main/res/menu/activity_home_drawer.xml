@@ -19,7 +19,11 @@
         <item
             android:id="@+id/nav_search"
             android:icon="@drawable/ic_payment_black_24dp"
-            android:title="Search" />
+            android:title="Special" />
+        <item
+            android:id="@+id/nav_aid"
+            android:icon="@drawable/ic_payment_black_24dp"
+            android:title="First Aid" />
         <item
             android:id="@+id/nav_location"
             android:icon="@drawable/ic_location_on_black_24dp"

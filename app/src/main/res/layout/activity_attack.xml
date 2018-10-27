@@ -77,6 +77,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_margin="5dp"
+
                 android:hint="Please Wait for Location Detection"
 
                 android:layout_marginBottom="15dip"
@@ -224,12 +225,13 @@
 
                 android:textSize="17sp"/>
 
-            <!-- contact input -->
-            <EditText android:id="@+id/attacktype"
+            <Spinner
+
+                android:id="@+id/attacktype"
 
                 android:layout_width="fill_parent"
 
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
 
                 android:paddingLeft="10dp"
 
@@ -237,7 +239,11 @@
 
                 android:paddingTop="10dp"
 
-                android:textSize="17sp"/>
+                android:textSize="17sp"
+
+
+                android:layout_centerHorizontal="true"
+                />
             <TextView
                 android:layout_width="fill_parent"
 

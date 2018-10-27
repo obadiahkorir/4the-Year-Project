@@ -51,7 +51,7 @@ import java.util.Map;
 
 public class AttackActivity extends AppCompatActivity implements
         View.OnClickListener, LocationListener, AdapterView.OnItemSelectedListener {
-    public Spinner spinner;
+    public Spinner spinner,spinner2;
     private SessionHandler session;
     protected LocationManager locationManager;
     protected LocationListener locationListener;
@@ -93,7 +93,6 @@ public class AttackActivity extends AppCompatActivity implements
         Email = (EditText) findViewById(R.id.editTextEmail);
         Email.setText(user.getFullName());
         Contact = (EditText) findViewById(R.id.contact);
-        Attacktype = (EditText) findViewById(R.id.attacktype);
         Date = (EditText) findViewById(R.id.in_date);
         txtDate = (EditText) findViewById(R.id.in_date);
         txtTime = (EditText) findViewById(R.id.in_time);
@@ -179,6 +178,20 @@ public class AttackActivity extends AppCompatActivity implements
 
         spinner.setAdapter(dataAdapter);
         spinner.setOnItemSelectedListener(this);
+        spinner2 = (Spinner) findViewById(R.id.attacktype);
+        List<String> thefttype = new ArrayList<String>();
+        thefttype.add("Please Select Attack Type");
+        thefttype.add("Terrorism Attack");
+        thefttype.add("Cyber Attack");
+
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>
+                (this, android.R.layout.simple_spinner_item, thefttype);
+
+        dataAdapter2.setDropDownViewResource
+                (android.R.layout.simple_spinner_dropdown_item);
+
+        spinner2.setAdapter(dataAdapter2);
+        spinner2.setOnItemSelectedListener(this);
         // Assigning ID's to Button.
         InsertButton = (Button) findViewById(R.id.ButtonInsert);
 

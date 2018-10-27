@@ -11,8 +11,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
-
-import com.example.obadiahkorir.projects.Medical.MedicalProblems;
 import com.example.obadiahkorir.projects.NearbyLocations.GMap.ListHealthCenters;
 
 public class HospitalActivity extends AppCompatActivity {
@@ -56,7 +54,7 @@ public class HospitalActivity extends AppCompatActivity {
      * */
     void medicalProblems() {
         loading("Loading...");
-        Intent intent = new Intent(HospitalActivity.this, MedicalProblems.class);
+        Intent intent = new Intent(HospitalActivity.this, HospitalActivity.class);
         startActivity(intent);
     }
 

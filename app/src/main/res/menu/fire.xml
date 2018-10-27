@@ -6,7 +6,7 @@
         android:id="@+id/action_location"
         android:orderInCategory="100"
         android:icon="@drawable/marker"
-        android:title="Send Location"
+        android:title="First Aid"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_Contacts"

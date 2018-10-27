@@ -48,7 +48,7 @@ import java.util.Calendar;
 
 public class ChildAbuseActivity extends AppCompatActivity  implements
         View.OnClickListener,LocationListener,AdapterView.OnItemSelectedListener {
-
+    private SessionHandler session;
     public Spinner spinner,spinner2;
     protected LocationManager locationManager;
     protected LocationListener locationListener;
@@ -77,7 +77,8 @@ public class ChildAbuseActivity extends AppCompatActivity  implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_child);
-
+        session = new SessionHandler(getApplicationContext());
+        User user = session.getUserDetails();
         toolbar = (Toolbar) findViewById(R.id.back);
         toolbar.setNavigationIcon(R.drawable.back_arrow);
         toolbar.setTitle("Report Child Abuse Incident.");
@@ -88,6 +89,7 @@ public class ChildAbuseActivity extends AppCompatActivity  implements
         FirstName = (EditText) findViewById(R.id.editTextFirstName);
         LastName = (EditText) findViewById(R.id.editTextLastName);
         Email = (EditText) findViewById(R.id.editTextEmail);
+        Email.setText(user.getFullName());
         Contact=(EditText) findViewById(R.id.contact);
         Date=(EditText)findViewById(R.id.in_date);
         txtDate=(EditText)findViewById(R.id.in_date);

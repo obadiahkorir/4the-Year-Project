@@ -365,6 +365,10 @@ public class HomeFireActivity extends AppCompatActivity implements
 
         }
         if (id == R.id.action_chat) {
+            Intent i = new Intent(getApplicationContext(), burns.class);
+            startActivity(i);
+            HomeFireActivity.this.overridePendingTransition(R.anim.push_left_in,
+                    R.anim.push_left_out);
 
         }
         if (id == R.id.action_image) {
@@ -375,10 +379,13 @@ public class HomeFireActivity extends AppCompatActivity implements
 
         }
         if (id == R.id.action_location) {
-
+            Intent i = new Intent(getApplicationContext(),first_aid.class);
+            startActivity(i);
+            HomeFireActivity.this.overridePendingTransition(R.anim.push_left_in,
+                    R.anim.push_left_out);
         }
         if (id == R.id.action_fire) {
-            Intent i = new Intent(getApplicationContext(), FireViewActivity.class);
+            Intent i = new Intent(getApplicationContext(),ViewFireActivity.class);
             startActivity(i);
             HomeFireActivity.this.overridePendingTransition(R.anim.push_left_in,
                     R.anim.push_left_out);

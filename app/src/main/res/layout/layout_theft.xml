@@ -84,6 +84,8 @@
 
                 android:layout_height="wrap_content"
 
+                android:hint="Please Wait for Location Detection"
+
                 android:layout_margin="5dp"
 
                 android:layout_marginBottom="15dip"
@@ -282,36 +284,47 @@
 
                 android:textSize="17sp"/>
 
-            <!-- Button Register -->
-            <Button android:id="@+id/ButtonInsert"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                android:layout_gravity="left"
+                <!-- Button Register -->
+                <Button android:id="@+id/ButtonInsert"
 
-                android:layout_width="fill_parent"
+                    android:layout_gravity="left"
 
-                android:textColor="@color/grey"
+                    android:layout_width="150dp"
 
-                android:layout_height="wrap_content"
+                    android:textColor="@color/grey"
 
-                android:background="@drawable/login_button"
+                    android:layout_height="wrap_content"
 
-                android:text="Submit"/>
+                    android:background="@drawable/login_button"
+
+                    android:text="Submit"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="18dp" />
 
 
-            <!-- Button Cancel -->
-            <Button android:id="@+id/btncancel"
+                <!-- Button Cancel -->
+                <Button android:id="@+id/btncancel"
 
-                android:textColor="@color/grey"
+                    android:textColor="@color/grey"
 
-                android:layout_gravity="right"
+                    android:layout_gravity="right"
 
-                android:layout_width="fill_parent"
+                    android:layout_width="150dp"
 
-                android:background="@drawable/login_button"
+                    android:background="@drawable/login_button"
 
-                android:layout_height="wrap_content"
+                    android:layout_height="wrap_content"
 
-                android:text="Cancel"/>
+                    android:text="Cancel"
+                    android:layout_marginEnd="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
 
         </LinearLayout>
     </ScrollView>
