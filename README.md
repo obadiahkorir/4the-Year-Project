@@ -1,4 +1,4 @@
-# 4the-Year-Project
+# INCIDENT AND EMERGENCY ALERT SYSTEM.
 Emergency Alert System
 The application is capabale of reporting various emergency alerts,provide a brief description of the alert, pinpoint current user location and at the same time allow user to choose incident location , capture image / Video and Report the alert. Users will recieve a real time notification on the amount of time expected to respond to the laert and the sidtance to be covered by the relevant body in order to curb the alert.<br>
 APPLICATION HOMEPAGE
